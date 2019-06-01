@@ -1,3 +1,7 @@
+![Heroku App](Images/biodiversityheroku.png)
+
+
+
 # Belly Button Biodiversity
 
 

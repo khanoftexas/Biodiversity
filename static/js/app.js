@@ -52,10 +52,13 @@ function buildCharts(sample) {
     // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
+ 
+   var mydata = sampledata["otu_ids"].sort(function(a, b){ return d3.descending(a, b); });
+   console.log(mydata);
     var data = [{
-      values: sampledata["sample_values"].splice(0, 10),
-      labels: sampledata["otu_ids"].splice(0, 10),
-      text: sampledata["sample_values"].splice(0,10),
+      values: sampledata["sample_values"].slice(0, 10),
+      labels: sampledata["otu_ids"].slice(0, 10),
+      text: sampledata["sample_values"].slice(0,10),
       type: 'pie'
     }];
     Plotly.newPlot('pie', data);

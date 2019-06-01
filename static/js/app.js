@@ -13,15 +13,17 @@ function buildMetadata(sample) {
   var url = `metadata/${sample}`;
   d3.json(url).then(function (sampledata) {
     console.log(sampledata);
+    var data=sampledata;
     var panel = d3.select("#sample-metadata");
     panel.html("");
 
     Object.entries(sampledata).forEach(([key, value]) => {
       panel.append("h6").text(`${key}:${value}`);
-    })
-  });
-        // BONUS: Build the Gauge Chart
-        // buildGauge(data.WFREQ);
+    });
+
+  // BONUS: Build the Gauge Chart
+  buildGauge(sampledata.WFREQ);
+});
 }
 
 function buildCharts(sample) {
